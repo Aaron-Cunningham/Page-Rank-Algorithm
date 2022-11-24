@@ -5,7 +5,14 @@
 * GPU: RTX 3080Ti
 * Windows 11
 
-### Initial test timings average:
+### Initial test timings unoptimized:
+In these initial tests Repeats were set at 1,000,000
+and Steps were set at 100.
+
+Stochastic method average (Seconds): 
+* 56.08 (Average after 5 tests)
+* 5.04 (max hit_count over 5 tests)
+
 
 
 
@@ -30,4 +37,10 @@ python page_rank.py -m distribution
 To set number of repeats and steps use:
 ```
 python page_rank.py --repeats= --steps= --method 
+```
+
+Optimized run Stochastic
+========================
+```
+python3 page_rank.py --repeats=500_000 --steps=40 --method stochastic 
 ```
