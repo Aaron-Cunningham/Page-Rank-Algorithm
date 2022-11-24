@@ -4,6 +4,7 @@ import time
 import argparse
 from progress import Progress
 import networkx as nx
+import random as r
 
 
 G = nx.DiGraph()
@@ -30,25 +31,40 @@ def load_graph(args):
 
 def print_stats(graph):
     """Print number of nodes and edges in the given graph"""
-    print("The number of nodes is: ", len(graph.nodes))
-    print("The number of edges is: ", len(graph.edges))
+    print("The number of nodes is:", len(graph.nodes))
+    print("The number of edges is:", len(graph.edges))
 
 
 def stochastic_page_rank(graph, args):
     """Stochastic PageRank estimation
-
     Parameters:
     graph -- a graph object as returned by load_graph()
     args -- arguments named tuple
-
     Returns:
     A dict that assigns each page its hit frequency
-
     This function estimates the Page Rank by counting how frequently
     a random walk that starts on a random node will after n_steps end
     on each node of the given graph.
     """
-    raise RuntimeError("This function is not implemented yet.")
+
+    # Sets nodes to nodes in dict
+    nodes = graph.nodes
+    # initialize hit_count[node] with 0 for all nodes
+    hit_count = dict.fromkeys(nodes, 0)
+
+    # repeat n_repetitions times:
+    # current_node <- randomly selected node
+    for i in range(args.repeats):
+        current_node = r.choice(list(nodes))
+
+        # repeat n_steps times:
+        # current_node <- uniformly randomly chosen among the out edges of current_node
+        for n in range(args.steps):
+            current_node = r.choice(list(graph[current_node]))
+
+        # hit_count[current_node] += 1/n_repetitions
+        hit_count[current_node] += 1 / args.repeats
+    return hit_count
 
 
 def distribution_page_rank(graph, args):
