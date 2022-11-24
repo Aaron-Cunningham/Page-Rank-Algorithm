@@ -3,27 +3,35 @@ import os
 import time
 import argparse
 from progress import Progress
+import networkx as nx
+
+
+G = nx.DiGraph()
 
 
 def load_graph(args):
     """Load graph from text file
-
     Parameters:
     args -- arguments named tuple
-
     Returns:
     A dict mapling a URL (str) to a list of target URLs (str).
     """
     # Iterate through the file line by line
-    for line in args.datafile:
-        # And split each line into two URLs
-        node, target = line.split()
-        raise RuntimeError("This function is not implemented yet.")
+    with open("school_web.txt") as args.datafile:
+        for line in args.datafile:
+            # And split each line into two URLs
+            node, target = line.split()
+            # Added node
+            G.add_node(node)
+            # Added Edge
+            G.add_edge(node, target)
+        return G
 
 
 def print_stats(graph):
-        """Print number of nodes and edges in the given graph"""
-        raise RuntimeError("This function is not implemented yet.")
+    """Print number of nodes and edges in the given graph"""
+    print("The number of nodes is: ", len(graph.nodes))
+    print("The number of edges is: ", len(graph.edges))
 
 
 def stochastic_page_rank(graph, args):
