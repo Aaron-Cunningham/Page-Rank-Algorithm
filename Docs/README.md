@@ -12,6 +12,11 @@ and Steps were set at 100.
 Stochastic method average (Seconds): 
 * 56.08 (Average after 5 tests)
 * 5.04 (max hit_count over 5 tests)
+Stochastic optimized method average (Seconds): 
+* 52.22 (Average after 5 tests)
+* 5.03 (max hit_count over 5 tests)
+
+
 
 
 
@@ -36,7 +41,7 @@ python page_rank.py -m distribution
 ```
 To set number of repeats and steps use:
 ```
-python page_rank.py --repeats= --steps= --method 
+python page_rank.py --repeats=1000000 --steps=100 --method 
 ```
 
 Optimized run Stochastic
