@@ -4,8 +4,7 @@ import time
 import argparse
 from progress import Progress
 import networkx as nx
-import random as r
-
+from random import choice as r
 
 G = nx.DiGraph()
 
@@ -48,19 +47,21 @@ def stochastic_page_rank(graph, args):
     """
 
     # Sets nodes to nodes in dict
-    nodes = graph.nodes
+    nodes = G.nodes
     # initialize hit_count[node] with 0 for all nodes
     hit_count = dict.fromkeys(nodes, 0)
+    current_node = r(list(nodes))
+
 
     # repeat n_repetitions times:
     # current_node <- randomly selected node
-    for i in range(args.repeats):
-        current_node = r.choice(list(nodes))
+    for i in range(1000000):
+        current_node
 
         # repeat n_steps times:
         # current_node <- uniformly randomly chosen among the out edges of current_node
         for n in range(args.steps):
-            current_node = r.choice(list(graph[current_node]))
+            current_node = r(list(graph[current_node]))
 
         # hit_count[current_node] += 1/n_repetitions
         hit_count[current_node] += 1 / args.repeats
@@ -80,7 +81,7 @@ def distribution_page_rank(graph, args):
     This function estimates the Page Rank by iteratively calculating
     the probability that a random walker is currently on any node.
     """
-    raise RuntimeError("This function is not implemented yet.")
+
 
 
 parser = argparse.ArgumentParser(description="Estimates page ranks from link information")
