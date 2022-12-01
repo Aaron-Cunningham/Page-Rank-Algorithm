@@ -3,10 +3,10 @@ import os
 import time
 import argparse
 from progress import Progress
-import networkx as nx
+from networkx import DiGraph
 from random import choice as r
 
-G = nx.DiGraph()
+G = DiGraph()
 
 
 def load_graph(args):
@@ -50,19 +50,18 @@ def stochastic_page_rank(graph, args):
     nodes = G.nodes
     # initialize hit_count[node] with 0 for all nodes
     hit_count = dict.fromkeys(nodes, 0)
+    # current_node <- randomly selected node
     current_node = r(list(nodes))
 
 
     # repeat n_repetitions times:
-    # current_node <- randomly selected node
-    for i in range(1000000):
-        current_node
 
+    for i in range(args.repeats):
+        current_node
         # repeat n_steps times:
         # current_node <- uniformly randomly chosen among the out edges of current_node
         for n in range(args.steps):
             current_node = r(list(graph[current_node]))
-
         # hit_count[current_node] += 1/n_repetitions
         hit_count[current_node] += 1 / args.repeats
     return hit_count
@@ -81,7 +80,23 @@ def distribution_page_rank(graph, args):
     This function estimates the Page Rank by iteratively calculating
     the probability that a random walker is currently on any node.
     """
+    node_prob = {}
+    nodes = G.nodes
+    # initialize node_prob[node] = 1/(number of nodes) for all nodes
+    for node in nodes:
+        node_prob[node] = 1 / len(nodes)
+    # repeat n_steps times: initialize next_prob[node] = 0 for all nodes
+    for i in range(args.steps):
+        next_prob = dict.fromkeys(nodes, 0)
 
+        # or each node: p <- node_prob[node] divided by its out degree
+        for node in nodes:
+            p = node_prob[node] / len(graph[node])
+            # for each target among out edges of node: next_prob[target] += p
+            for target in graph[node]:
+                next_prob[target] += p
+        node_prob = next_prob
+    return node_prob
 
 
 parser = argparse.ArgumentParser(description="Estimates page ranks from link information")
