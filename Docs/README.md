@@ -1,3 +1,10 @@
+Page Rank
+=========
+This application calculates the page rank of the webpages stored in school_web.txt.
+It utilises two methods:
+1) Stochastic method
+2) Distribution method
+
 ### PC SPECS
 
 * CPU: Intel i9-13900k
@@ -5,47 +12,47 @@
 * GPU: RTX 3080Ti
 * Windows 11
 
-### Initial test timings unoptimized:
-In these initial tests Repeats were set at 1,000,000
-and Steps were set at 100.
-
-Stochastic method average (Seconds): 
-* 57.08 (Average after 5 tests)
-* 5.04 (max hit_count over 5 tests)
-Stochastic optimized method average (Seconds): 
-* 53.22 (Average after 5 tests)
-* 5.03 (max hit_count over 5 tests)
-
-
-
-
+### Optimization times
+I have made a PDF file with results before and after optimization for evidence that my programme improved.
+My optimization steps can be found in: ```Optimization.md``` 
 
 
 Arguments:
 =========
-To run Stochastic method use:
+### In order to run the program from terminal please use the arguments listed below.
+
+#### To run Stochastic method use:
 ```
 python page_rank.py --method stochastic
 ```
-Or:
 ```
 python page_rank.py -m stochastic
 ```
-To run Distribution method use:
+#### To run Distribution method use:
 ```
 python page_rank.py --method distribution
 ```
-Or:
 ```
 python page_rank.py -m distribution
 ```
-To set number of repeats and steps use:
+#### To set number of repeats use (Default = 1,000,000):
 ```
-python page_rank.py --repeats=1000000 --steps=100 --method 
+python page_rank.py --method=stochastic --repeats=1000000
 ```
-
-Optimized run Stochastic
-========================
 ```
-python3 page_rank.py --repeats=500_000 --steps=40 --method stochastic 
+python page_rank.py --method=distribution --repeats=1000000
+```
+#### To set the number of steps use (Default = 100):
+```
+python page_rank.py --method=stochastic --steps=100
+```
+```
+python page_rank.py --method=distribution --steps=100
+```
+#### To change number of Top Pages that show up in the results use (Default = 20):
+```
+python page_rank.py --method=stochastic --number=20
+```
+```
+python page_rank.py --method=distribution --number=20
 ```
