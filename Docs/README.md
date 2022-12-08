@@ -13,8 +13,10 @@ It utilises two methods:
 * Windows 11
 
 ### Optimization times
-I have made a PDF file with results before and after optimization for evidence that my programme improved.
-My optimization steps can be found in: ```Optimization.md``` 
+I have made a PDF file called ```Stochastic method before and after optimization evidence.pdf``` which is in the docs
+folder with results before and after optimization for evidence that my program improved.
+
+Furthermore, my optimization steps can be found in: ```Optimization.md``` 
 
 
 Arguments:
