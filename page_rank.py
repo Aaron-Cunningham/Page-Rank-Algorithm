@@ -4,7 +4,7 @@ import time
 import argparse
 from progress import Progress
 from networkx import DiGraph
-from random import choice as r
+from random import choice
 
 G = DiGraph()
 
@@ -48,11 +48,11 @@ def stochastic_page_rank(graph, args):
 
     # Sets nodes to nodes in dict
     nodes = G.nodes
+    nodes_list = list(G.nodes)
     # initialize hit_count[node] with 0 for all nodes
     hit_count = dict.fromkeys(nodes, 0)
     # current_node <- randomly selected node
-    current_node = r(list(nodes))
-
+    current_node = choice(nodes_list)
 
     # repeat n_repetitions times:
 
@@ -60,10 +60,12 @@ def stochastic_page_rank(graph, args):
         current_node
         # repeat n_steps times:
         # current_node <- uniformly randomly chosen among the out edges of current_node
+
         for n in range(args.steps):
-            current_node = r(list(graph[current_node]))
+            current_node = choice(list(graph[current_node]))
         # hit_count[current_node] += 1/n_repetitions
         hit_count[current_node] += 1 / args.repeats
+
     return hit_count
 
 
@@ -108,7 +110,6 @@ parser.add_argument('-r', '--repeats', type=int, default=1_000_000, help="number
 parser.add_argument('-s', '--steps', type=int, default=100, help="number of steps a walker takes")
 parser.add_argument('-n', '--number', type=int, default=20, help="number of results shown")
 
-
 if __name__ == '__main__':
     args = parser.parse_args()
     algorithm = distribution_page_rank if args.method == 'distribution' else stochastic_page_rank
@@ -124,5 +125,5 @@ if __name__ == '__main__':
 
     top = sorted(ranking.items(), key=lambda item: item[1], reverse=True)
     sys.stderr.write(f"Top {args.number} pages:\n")
-    print('\n'.join(f'{100*v:.2f}\t{k}' for k,v in top[:args.number]))
+    print('\n'.join(f'{100 * v:.2f}\t{k}' for k, v in top[:args.number]))
     sys.stderr.write(f"Calculation took {time:.2f} seconds.\n")
