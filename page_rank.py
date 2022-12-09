@@ -1,12 +1,11 @@
 import sys
-import os
 import time
 import argparse
-from progress import Progress
 from networkx import DiGraph
 from random import choice
 
-G = DiGraph()
+# Graph object created
+graObj = DiGraph()
 
 
 def load_graph(args):
@@ -22,22 +21,22 @@ def load_graph(args):
             # And split each line into two URLs
             node, target = line.split()
             # Added node
-            G.add_node(node)
+            graObj.add_node(node)
             # Added Edge
-            G.add_edge(node, target)
-        return G
+            graObj.add_edge(node, target)
+        return graObj
 
 
 def print_stats(graph):
     """Print number of nodes and edges in the given graph"""
-    print("The number of nodes is:", len(graph.nodes))
-    print("The number of edges is:", len(graph.edges))
+    print("The number of nodes is:", len(graObj.nodes))
+    print("The number of edges is:", len(graObj.edges))
 
 
-def stochastic_page_rank(graph, args):
+def stochastic_page_rank(graObj, args):
     """Stochastic PageRank estimation
     Parameters:
-    graph -- a graph object as returned by load_graph()
+    graObj -- a graph object as returned by load_graph()
     args -- arguments named tuple
     Returns:
     A dict that assigns each page its hit frequency
@@ -47,8 +46,8 @@ def stochastic_page_rank(graph, args):
     """
 
     # Sets nodes to nodes in dict
-    nodes = G.nodes
-    nodes_list = list(G.nodes)
+    nodes = graObj.nodes
+    nodes_list = list(graObj.nodes)
 
 
     # initialize hit_count[node] with 0 for all nodes
@@ -61,18 +60,18 @@ def stochastic_page_rank(graph, args):
         # repeat n_steps times:
         # current_node <- uniformly randomly chosen among the out edges of current_node
         for n in range(args.steps):
-            current_node = choice(list(graph[current_node]))
+            current_node = choice(list(graObj[current_node]))
         # hit_count[current_node] += 1/n_repetitions
         hit_count[current_node] += 1 / args.repeats
 
     return hit_count
 
 
-def distribution_page_rank(graph, args):
+def distribution_page_rank(graObj, args):
     """Probabilistic PageRank estimation
 
     Parameters:
-    graph -- a graph object as returned by load_graph()
+    graObj -- a graph object as returned by load_graph()
     args -- arguments named tuple
 
     Returns:
@@ -81,8 +80,9 @@ def distribution_page_rank(graph, args):
     This function estimates the Page Rank by iteratively calculating
     the probability that a random walker is currently on any node.
     """
+
     node_prob = {}
-    nodes = G.nodes
+    nodes = graObj.nodes
     # initialize node_prob[node] = 1/(number of nodes) for all nodes
     for node in nodes:
         node_prob[node] = 1 / len(nodes)
@@ -92,9 +92,9 @@ def distribution_page_rank(graph, args):
 
         # or each node: p <- node_prob[node] divided by its out degree
         for node in nodes:
-            p = node_prob[node] / len(graph[node])
+            p = node_prob[node] / len(graObj[node])
             # for each target among out edges of node: next_prob[target] += p
-            for target in graph[node]:
+            for target in graObj[node]:
                 next_prob[target] += p
         node_prob = next_prob
     return node_prob
