@@ -49,18 +49,17 @@ def stochastic_page_rank(graph, args):
     # Sets nodes to nodes in dict
     nodes = G.nodes
     nodes_list = list(G.nodes)
+
+
     # initialize hit_count[node] with 0 for all nodes
     hit_count = dict.fromkeys(nodes, 0)
-    # current_node <- randomly selected node
-    current_node = choice(nodes_list)
 
     # repeat n_repetitions times:
-
     for i in range(args.repeats):
-        current_node
+        # current_node <- randomly selected node
+        current_node = choice(nodes_list)
         # repeat n_steps times:
         # current_node <- uniformly randomly chosen among the out edges of current_node
-
         for n in range(args.steps):
             current_node = choice(list(graph[current_node]))
         # hit_count[current_node] += 1/n_repetitions
@@ -99,7 +98,6 @@ def distribution_page_rank(graph, args):
                 next_prob[target] += p
         node_prob = next_prob
     return node_prob
-
 
 parser = argparse.ArgumentParser(description="Estimates page ranks from link information")
 parser.add_argument('datafile', nargs='?', type=argparse.FileType('r'), default=sys.stdin,
