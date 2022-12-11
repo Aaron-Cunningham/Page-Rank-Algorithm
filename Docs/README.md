@@ -1,27 +1,37 @@
-Page Rank
+Getting started with Page Rank
 =========
 This application calculates the page rank of the webpages stored in school_web.txt.
 It utilises two methods:
 1) Stochastic method
 2) Distribution method
 
-### PC SPECS
+This program uses the networkx module,
+make sure you have networkx installed with pip command:
+```
+pip install networkx
+```
+Once networkx is installed, make you way down to the arguments section of the README.md file for further instructions on how to run the program
+
+
+### Optimization
+I have made a PDF file called ```Stochastic and distribution method before and after optimization evidence.pdf``` which is in the docs
+folder. This has the results before and after optimization for evidence that my program improved. Furthermore, my optimization steps can be found in: ```Optimization.md```.
+
+All tests were carried out on my home Computer so test results may differ. My Computer specs are listed below.
+##### PC SPECS
 
 * CPU: Intel i9-13900k
 * RAM: 32GB Corsair DDR5 5600MHz
 * GPU: RTX 3080Ti
+* 850w PSU
 * Windows 11
-
-### Optimization times
-I have made a PDF file called ```Stochastic method before and after optimization evidence.pdf``` which is in the docs
-folder with results before and after optimization for evidence that my program improved.
-
-Furthermore, my optimization steps can be found in: ```Optimization.md``` 
 
 
 Arguments:
 =========
-### In order to run the program from terminal please use the arguments listed below.
+![img_1.png](img_1.png)
+### In order to run the program from terminal please use the command line arguments listed below.
+
 
 #### To run Stochastic method use:
 ```
