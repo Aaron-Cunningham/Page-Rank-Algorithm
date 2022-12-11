@@ -56,7 +56,7 @@ def stochastic_page_rank(graObj, args):
         # repeat n_steps times:
         for n in range(args.steps):
             # current_node <- uniformly randomly chosen among the out edges of current_node
-            current_node = choice(list(graObj.successors(current_node)))
+            current_node = choice(list(graObj.neighbors(current_node)))
         # hit_count[current_node] += 1/n_repetitions
         hit_count[current_node] += 1 / args.repeats
     return hit_count
@@ -85,7 +85,7 @@ def distribution_page_rank(graObj, args):
     for i in range(args.steps):
         # initialize next_prob[node] = 0 for all nodes
         next_prob = dict.fromkeys(nodes, 0)
-        # or each node:
+        # for each node:
         for node in nodes:
             # p <- node_prob[node] divided by its out degree
             p = node_prob[node] / graObj.out_degree(node)
@@ -123,3 +123,7 @@ if __name__ == '__main__':
     sys.stderr.write(f"Top {args.number} pages:\n")
     print('\n'.join(f'{100 * v:.2f}\t{k}' for k, v in top[:args.number]))
     sys.stderr.write(f"Calculation took {time:.2f} seconds.\n")
+
+
+
+
