@@ -12,8 +12,7 @@ The next step I took was for both distribution and stochastic methods. I used th
 and hit_count[node] = 0 for all nodes. Although this didn't save much time, it made the code shorter and in my opinion easier to read.
 
 The next step I took was for the stochastic method, I was originally using ```graObj[current_node]``` to access the out_edge of current_node
-but since I was using networkx I thought it was more appropriate to use ```graObj.successors(current_node)```. This method is apart of
+but since I was using networkx I thought it was more appropriate to use ```graObj.neighbors(current_node)```. This method is a part of
 the networkx module. The implementation of this proved night and day, it was the main factor in reducing my stochastic 
-algorithm time. The successors() method"Returns an iterator over successor nodes of n. A successor of n is a node m such that there exists 
-a directed edge from n to m." (Referenced from 
-``` https://networkx.org/documentation/stable/reference/classes/generated/networkx.DiGraph.successors.html```).
+algorithm time. The neighbors() method "Returns an iterator over all neighbors of node n. This is identical to iter(G[n])" (Referenced from 
+``` https://networkx.org/documentation/stable/reference/classes/generated/networkx.Graph.neighbors.html```).
