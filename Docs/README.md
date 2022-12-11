@@ -25,36 +25,36 @@ Arguments:
 
 #### To run Stochastic method use:
 ```
-python page_rank.py --method stochastic
+python page_rank.py --method stochastic school_web.txt
 ```
 ```
-python page_rank.py -m stochastic
+python page_rank.py -m stochastic school_web.txt
 ```
 #### To run Distribution method use:
 ```
-python page_rank.py --method distribution
+python page_rank.py --method distribution school_web.txt
 ```
 ```
-python page_rank.py -m distribution
+python page_rank.py -m distribution school_web.txt
 ```
 #### To set number of repeats use (Default = 1,000,000):
 ```
-python page_rank.py --method=stochastic --repeats=1000000
+python page_rank.py --method=stochastic --repeats=1000000 school_web.txt
 ```
 ```
-python page_rank.py --method=distribution --repeats=1000000
+python page_rank.py --method=distribution --repeats=1000000 school_web.txt
 ```
 #### To set the number of steps use (Default = 100):
 ```
-python page_rank.py --method=stochastic --steps=100
+python page_rank.py --method=stochastic --steps=100 school_web.txt
 ```
 ```
-python page_rank.py --method=distribution --steps=100
+python page_rank.py --method=distribution --steps=100 school_web.txt
 ```
 #### To change number of Top Pages that show up in the results use (Default = 20):
 ```
-python page_rank.py --method=stochastic --number=20
+python page_rank.py --method=stochastic --number=20 school_web.txt
 ```
 ```
-python page_rank.py --method=distribution --number=20
+python page_rank.py --method=distribution --number=20 school_web.txt
 ```
