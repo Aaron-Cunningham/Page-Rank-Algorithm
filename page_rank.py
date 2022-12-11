@@ -56,7 +56,7 @@ def stochastic_page_rank(graObj, args):
         # repeat n_steps times:
         for n in range(args.steps):
             # current_node <- uniformly randomly chosen among the out edges of current_node
-            current_node = choice(list(graObj[current_node]))
+            current_node = choice(list(graObj.successors(current_node)))
         # hit_count[current_node] += 1/n_repetitions
         hit_count[current_node] += 1 / args.repeats
     return hit_count
@@ -85,13 +85,12 @@ def distribution_page_rank(graObj, args):
     for i in range(args.steps):
         # initialize next_prob[node] = 0 for all nodes
         next_prob = dict.fromkeys(nodes, 0)
-
         # or each node:
         for node in nodes:
             # p <- node_prob[node] divided by its out degree
-            p = node_prob[node] / len(graObj[node])
+            p = node_prob[node] / graObj.out_degree(node)
             # for each target among out edges of node
-            for target in graObj[node]:
+            for target in graObj.successors(node):
                 # next_prob[target] += p
                 next_prob[target] += p
         # node_prob <- next_prob
