@@ -32,7 +32,10 @@ Arguments:
 ![img_1.png](img_1.png)
 ### In order to run the program from terminal please use the command line arguments listed below.
 
-
+#### To see argument list use:
+```
+python page_rank.py -h
+```
 #### To run Stochastic method use:
 ```
 python page_rank.py --method stochastic school_web.txt
