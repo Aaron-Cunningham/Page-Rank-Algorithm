@@ -25,7 +25,7 @@ def load_graph(args):
     return graObj
 
 
-def print_stats(graph):
+def print_stats(graObj):
     """Print number of nodes and edges in the given graph"""
     print("The number of nodes is:", len(graObj.nodes))
     print("The number of edges is:", len(graObj.edges))
@@ -90,7 +90,7 @@ def distribution_page_rank(graObj, args):
             # p <- node_prob[node] divided by its out degree
             p = node_prob[node] / graObj.out_degree(node)
             # for each target among out edges of node
-            for target in graObj.successors(node):
+            for target in graObj[node]:
                 # next_prob[target] += p
                 next_prob[target] += p
         # node_prob <- next_prob
