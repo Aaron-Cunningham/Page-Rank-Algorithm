@@ -1,9 +1,19 @@
 Code optimization
 =================
-1) As part of the optimization in the stochastic_page_rank method I directly 
-imported the choice function instead of the full random Library.
-2) As part of the optimization for stochastic_page_rank I initilizaed current_node
-at the start of the method and then called it when carrying out the 
-repeats.
-3) As part of the distribution and stochastic method I used the fromkeys() method to set the next_prob[node] = 0 for all nodes
+
+As part of my optimization, I used a few different methods. The first method I used to directly increase the speed of my stochastic
+method was to directly import the random.choice module. I did this so the program didn't need to go searching through the
+large random module. This saved some seconds but not much. 
+
+Another optimization I did was initializing current node at the start of my stochastic method. Although this didn't 
+massively improve the speed of my algorithm it still showed some improvement. 
+
+The next step I took was for both distribution and stochastic methods. I used the fromkeys() method to set next_prob[node] = 0 for all nodes
 and hit_count[node] = 0 for all nodes. Although this didn't save much time, it made the code shorter and in my opinion easier to read.
+
+The next step I took was for the stochastic method, I was originally using ```graObj[current_node]``` to access the out_edge of current_node
+but since I was using networkx I thought it was more appropriate to use ```graObj.successors(current_node)```. This method is apart of
+the networkx module. The implementation of this proved night and day, it was the main factor in reducing my stochastic 
+algorithm time. The successors() method"Returns an iterator over successor nodes of n. A successor of n is a node m such that there exists 
+a directed edge from n to m." (Referenced from 
+``` https://networkx.org/documentation/stable/reference/classes/generated/networkx.DiGraph.successors.html```).
