@@ -3,7 +3,6 @@ import time
 import argparse
 from networkx import DiGraph
 from random import choice
-
 # Graph object created
 graObj = DiGraph()
 
@@ -16,15 +15,14 @@ def load_graph(args):
     A dict mapling a URL (str) to a list of target URLs (str).
     """
     # Iterate through the file line by line
-    with open("school_web.txt") as args.datafile:
-        for line in args.datafile:
-            # And split each line into two URLs
-            node, target = line.split()
-            # Added node
-            graObj.add_node(node)
-            # Added Edge
-            graObj.add_edge(node, target)
-        return graObj
+    for line in args.datafile:
+        # And split each line into two URLs
+        node, target = line.split()
+        # Added node
+        graObj.add_node(node)
+        # Added Edge
+        graObj.add_edge(node, target)
+    return graObj
 
 
 def print_stats(graph):
@@ -63,7 +61,6 @@ def stochastic_page_rank(graObj, args):
             current_node = choice(list(graObj[current_node]))
         # hit_count[current_node] += 1/n_repetitions
         hit_count[current_node] += 1 / args.repeats
-
     return hit_count
 
 
@@ -99,6 +96,7 @@ def distribution_page_rank(graObj, args):
             for target in graObj[node]:
                 # next_prob[target] += p
                 next_prob[target] += p
+        # node_prob <- next_prob
         node_prob = next_prob
     return node_prob
 
