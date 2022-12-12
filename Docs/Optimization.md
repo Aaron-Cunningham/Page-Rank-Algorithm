@@ -16,3 +16,9 @@ but since I was using networkx I thought it was more appropriate to use ```graOb
 the networkx module. The implementation of this proved night and day, it was the main factor in reducing my stochastic 
 algorithm time. The neighbors() method "Returns an iterator over all neighbors of node n. This is identical to iter(G[n])" (Referenced from 
 ``` https://networkx.org/documentation/stable/reference/classes/generated/networkx.Graph.neighbors.html```).
+
+The next optimization step I took was for the distribution method. Originally when initializing the node_prob[node] I was 
+using the way it was described to me in the pseudocode```for node in nodes```. I noticed that in the notes on canvas it suggested using a list or dict 
+comprehension to optimize, so I took advantage of this advice and made that part of the pseudocode into a dict comprehension.
+Since the distribution method is already lightning fast, I didn't see any improvement as I was still getting the same
+speeds. But I thought it was a good step to implement into my code.
