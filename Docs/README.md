@@ -29,45 +29,45 @@ All tests were carried out on my home Computer so test results may differ. My Co
 
 Arguments:
 =========
-![img_1.png](img_1.png)
+![img_1.png](Images/Argument_list.png)
 ### In order to run the program from terminal please use the command line arguments listed below.
 
 #### To see argument list use:
 ```
-python page_rank.py -h
+python page_rank/page_rank.py -h
 ```
 #### To run Stochastic method use:
 ```
-python page_rank.py --method stochastic school_web.txt
+python page_rank/page_rank.py --method stochastic data/school_web.txt
 ```
 ```
-python page_rank.py -m stochastic school_web.txt
+python page_rank/page_rank.py -m stochastic data/school_web.txt
 ```
 #### To run Distribution method use:
 ```
-python page_rank.py --method distribution school_web.txt
+python page_rank/page_rank.py --method distribution data/school_web.txt
 ```
 ```
-python page_rank.py -m distribution school_web.txt
+python page_rank/page_rank.py -m distribution data/school_web.txt
 ```
 #### To set number of repeats use (Default = 1,000,000):
 ```
-python page_rank.py --method=stochastic --repeats=1000000 school_web.txt
+python page_rank/page_rank.py --method=stochastic --repeats=1000000 data/school_web.txt
 ```
 ```
-python page_rank.py --method=distribution --repeats=1000000 school_web.txt
+python page_rank/page_rank.py --method=distribution --repeats=1000000 data/school_web.txt
 ```
 #### To set the number of steps use (Default = 100):
 ```
-python page_rank.py --method=stochastic --steps=100 school_web.txt
+python page_rank/page_rank.py --method=stochastic --steps=100 data/school_web.txt
 ```
 ```
-python page_rank.py --method=distribution --steps=100 school_web.txt
+python page_rank/page_rank.py --method=distribution --steps=100 data/school_web.txt
 ```
 #### To change number of Top Pages that show up in the results use (Default = 20):
 ```
-python page_rank.py --method=stochastic --number=20 school_web.txt
+python page_rank/page_rank.py --method=stochastic --number=20 data/school_web.txt
 ```
 ```
-python page_rank.py --method=distribution --number=20 school_web.txt
+python page_rank/page_rank.py --method=distribution --number=20 data/school_web.txt
 ```
