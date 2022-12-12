@@ -79,12 +79,10 @@ def distribution_page_rank(graObj, args):
     This function estimates the Page Rank by iteratively calculating
     the probability that a random walker is currently on any node.
     """
-
-    node_prob = {}
     nodes = graObj.nodes
+
     # initialize node_prob[node] = 1/(number of nodes) for all nodes
-    for node in nodes:
-        node_prob[node] = 1 / len(nodes)
+    node_prob = {node: 1/len(nodes) for node in nodes}
     # repeat n_steps times:
     for i in range(args.steps):
         # initialize next_prob[node] = 0 for all nodes
