@@ -5,17 +5,25 @@ It utilises two methods:
 1) Stochastic method
 2) Distribution method
 
+While making this program I needed to research the networkx documentation. I have referenced what methods I have used 
+from networkx throughout my work.
+
+### Requirements
+
+
 This program uses the networkx module,
 make sure you have networkx installed with pip command:
 ```
 pip install networkx
 ```
-Once networkx is installed, make you way down to the arguments section of the README.md file for further instructions on how to run the program
+Once networkx is installed, make you way down to the arguments section of the README.md file for further instructions 
+on how to run the program
 
 
 ### Optimization
-I have made a PDF file called ```Stochastic and distribution method before and after optimization evidence.pdf``` which is in the docs
-folder. This has the results before and after optimization for evidence that my program improved. Furthermore, my optimization steps can be found in: ```Optimization.md```.
+I have made a PDF file called ```Stochastic and distribution method before and after optimization evidence.pdf``` which 
+is in the docs folder. This has the results before and after optimization for evidence that my program improved. Furthermore, 
+my optimization steps can be found in: ```Optimization.md```.
 
 All tests were carried out on my home Computer so test results may differ. My Computer specs are listed below.
 ##### PC SPECS
