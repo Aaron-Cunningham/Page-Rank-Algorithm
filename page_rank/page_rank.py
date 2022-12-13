@@ -98,6 +98,7 @@ def distribution_page_rank(graObj, args):
                 next_prob[target] += p
         # node_prob <- next_prob
         node_prob = next_prob
+
     return node_prob
 
 parser = argparse.ArgumentParser(description="Estimates page ranks from link information")
@@ -115,10 +116,10 @@ if __name__ == '__main__':
 
     graph = load_graph(args)
 
-    print_stats(graph)
+    print_stats(graObj)
 
     start = time.time()
-    ranking = algorithm(graph, args)
+    ranking = algorithm(graObj, args)
     stop = time.time()
     time = stop - start
 
