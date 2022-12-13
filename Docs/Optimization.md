@@ -1,5 +1,6 @@
 Code optimization
 =================
+This part of my documentation is where I talk about the optimization steps I took to increase the speeds of the two methods used in my page rank algorithm.
 
 ## Imports
 As part of my optimization, I used a few different methods. The first method I used to directly increase the speed of my stochastic
