@@ -4,8 +4,10 @@ This part of my documentation is where I talk about the optimization steps I too
 
 ## Imports
 As part of my optimization, I used a few different methods. The first method I used to directly increase the speed of my stochastic
-method was to directly import the random.choice module. I did this so the program didn't need to go searching through the
-large random module. This saved some seconds but not much. 
+method was to directly import the ```random.choice``` module. I did this so the program didn't need to go searching through the
+large random module. This saved some seconds but not much. Rather like the ```random.choice``` module I also did the same for the networkx DiGraph
+module which stands for directed graph. Since I was using a DiGraph I just imported this directly to save computational time. This stopped the program searching though all of the 
+networkx library and just directly accessed DiGraph.
 
 ## Initilizing
 Another optimization I did was initializing current node at the start of my stochastic method. Although this didn't 
@@ -25,6 +27,12 @@ algorithm time. The neighbors() method "Returns an iterator over all neighbors o
 ## Dict comprehensions
 The next optimization step I took was for the distribution method. Originally when initializing the node_prob[node] I was 
 using the way it was described to me in the pseudocode```for node in nodes```. I noticed that in the notes on canvas it suggested using a list or dict 
-comprehension to optimize, so I took advantage of this advice and made that part of the pseudocode into a dict comprehension.
+comprehension to optimize, so I took advantage of this advice and made that part of the pseudocode into a dict comprehension which
+looks like this ```node_prob = {node: 1/len(nodes) for node in nodes}```
 Since the distribution method is already lightning fast, I didn't see any improvement as I was still getting the same
 speeds. But I thought it was a good step to implement into my code.
+
+## Out degree
+In the distribution method, I used the method ```out_degree(x)``` which is a part of the networkx library. Originally I was calculating
+the out degree of ```node_prob[node]``` with ```len(graObj[node])``` but since I was using the networkx library I thought it was a good idea to
+implement the out_degree method as I had access to it. I did notice a change when implementing this by 0.01 of a second.
