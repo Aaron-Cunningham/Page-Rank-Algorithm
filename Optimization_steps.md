@@ -1,21 +1,20 @@
 Code optimization
 =================
-This part of my documentation is where I talk about the optimization steps I took to increase the speeds of the two methods used in my page rank algorithm.
+This part of my documentation is where I talk about the optimization steps I took to increase the speeds of the two 
+methods used in my page rank algorithm.
 
 ## Imports
 As part of my optimization, I used a few different methods. The first method I used to directly increase the speed of my stochastic
 method was to directly import the ```random.choice``` module. I did this so the program didn't need to go searching through the
 large random module. This saved some seconds but not much. Rather like the ```random.choice``` module I also did the same for the networkx DiGraph
-module which stands for directed graph. Since I was using a DiGraph I just imported this directly to save computational time. This stopped the program searching though all of the 
-networkx library and just directly accessed DiGraph.
+module which stands for directed graph. Since I was using a DiGraph I just imported this directly to save computational time. This stopped the program searching though the whole
+networkx library and just directly accessed DiGraph which is the specific graph I was using for this program.
 
-## Initilizing
-Another optimization I did was initializing current node at the start of my stochastic method. Although this didn't 
-massively improve the speed of my algorithm it still showed some improvement. 
 
 ## Fromkeys()
-The next step I took was for both distribution and stochastic methods. I used the fromkeys() method to set next_prob[node] = 0 for all nodes
-and hit_count[node] = 0 for all nodes. Although this didn't save much time, it made the code shorter and in my opinion easier to read.
+The next step I took was for both distribution and stochastic methods. I used the fromkeys() method to set ```next_prob[node] = 0 for all nodes```
+and ```hit_count[node] = 0 for all nodes```. Although this didn't save much time, it made the code shorter and in my opinion easier to read.
+This method creates a new dictionary and sets all nodes to equal 0.
 
 ## Using networkx methods
 The next step I took was for the stochastic method, I was originally using ```graObj[current_node]``` to access the out_edge of current_node
@@ -35,4 +34,5 @@ speeds. But I thought it was a good step to implement into my code.
 ## Out degree
 In the distribution method, I used the method ```out_degree(x)``` which is a part of the networkx library. Originally I was calculating
 the out degree of ```node_prob[node]``` with ```len(graObj[node])``` but since I was using the networkx library I thought it was a good idea to
-implement the out_degree method as I had access to it. I did notice a change when implementing this by 0.01 of a second.
+implement the out_degree method as I had access to it. Not only did this improve the speed of my algorithm, but I also 
+thought it was easier to read and understand my code. This implementation saved 0.01 seconds on the distribution method.
