@@ -46,16 +46,14 @@ def stochastic_page_rank(graObj, args):
     """
 
     # Sets nodes to nodes in dict
-    nodes = graObj.nodes
-    # List of the nodes
-    nodes_list = list(graObj.nodes)
+    nodes = list(graObj.nodes)
     # initialize hit_count[node] with 0 for all nodes
     hit_count = dict.fromkeys(nodes, 0)
 
     # repeat n_repetitions times:
     for i in range(args.repeats):
         # current_node <- randomly selected node
-        current_node = choice(nodes_list)
+        current_node = choice(nodes)
         # repeat n_steps times:
         for n in range(args.steps):
             # current_node <- uniformly randomly chosen among the out edges of current_node
@@ -79,7 +77,7 @@ def distribution_page_rank(graObj, args):
     This function estimates the Page Rank by iteratively calculating
     the probability that a random walker is currently on any node.
     """
-    nodes = graObj.nodes
+    nodes = list(graObj.nodes)
 
     # initialize node_prob[node] = 1/(number of nodes) for all nodes
     node_prob = {node: 1/len(nodes) for node in nodes}
