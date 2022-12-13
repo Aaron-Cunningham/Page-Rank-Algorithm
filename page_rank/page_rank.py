@@ -18,7 +18,7 @@ def load_graph(args):
     for line in args.datafile:
         # And split each line into two URLs
         node, target = line.split()
-        # Code "G.add_node" & "G.add_edges" referenced from https://networkx.org/documentation/stable/tutorial.html
+        # Code "G.add_node" & "G.add_edges" referenced from networkx docs (https://networkx.org/documentation/stable/tutorial.html)
         # Added node
         graObj.add_node(node)
         # Added Edges
@@ -28,7 +28,7 @@ def load_graph(args):
 
 def print_stats(graObj):
     """Print number of nodes and edges in the given graph"""
-    # Code "G.number_of_nodes" & "G.number_of_edges" referenced from https://networkx.org/documentation/stable/tutorial.html
+    # Code "G.number_of_nodes" & "G.number_of_edges" referenced from networkx docs (https://networkx.org/documentation/stable/tutorial.html)
     print("The number of nodes is:", graObj.number_of_nodes())
     print("The number of edges is:", graObj.number_of_edges())
 
@@ -59,7 +59,7 @@ def stochastic_page_rank(graObj, args):
         # repeat n_steps times:
         for n in range(args.steps):
             # current_node <- uniformly randomly chosen among the out edges of current_node
-            # Code "G.neighbors(x)" referenced from https://networkx.org/documentation/stable/reference/classes/generated/networkx.DiGraph.neighbors.html
+            # Code "G.neighbors(x)" referenced from networkx docs (https://networkx.org/documentation/stable/reference/classes/generated/networkx.DiGraph.neighbors.html)
             current_node = choice(list(graObj.neighbors(current_node)))
         # hit_count[current_node] += 1/n_repetitions
         hit_count[current_node] += 1 / args.repeats
@@ -90,7 +90,7 @@ def distribution_page_rank(graObj, args):
         # for each node:
         for node in nodes:
             # p <- node_prob[node] divided by its out degree
-            # Code "G.out_degree(X)" referenced from https://networkx.org/documentation/stable/reference/classes/generated/networkx.DiGraph.out_degree.html
+            # Code "G.out_degree(X)" referenced from networkx docs (https://networkx.org/documentation/stable/reference/classes/generated/networkx.DiGraph.out_degree.html)
             p = node_prob[node] / graObj.out_degree(node)
             # for each target among out edges of node
             for target in graObj[node]:
