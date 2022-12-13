@@ -67,9 +67,9 @@ Optimization
 
  
 
-I have made a PDF file called [Optimization_evidence.pdf](./Optimization_evidence.pdf) . 
+I have made a PDF file called [Optimization_evidence.pdf](Optimization_evidence.pdf) . 
 This has the results before and after optimization for evidence that my program improved. Furthermore, 
-my optimization report/steps can be found in: [Optimization.md](./Optimization.md).
+my optimization report/steps can be found in: [Optimization.md](Optimization.md).
 
 All tests were carried out on my home Computer so test results may differ. My Computer specs are listed below.
 ##### PC SPECS
@@ -83,7 +83,7 @@ All tests were carried out on my home Computer so test results may differ. My Co
 
 Arguments:
 =========
-![img_1.png](Images/Argument_list.png)
+![img_1.png](Docs/Images/Argument_list.png)
 ### In order to run the program from terminal please use the command line arguments listed below.
 
 #### To see argument list use:
