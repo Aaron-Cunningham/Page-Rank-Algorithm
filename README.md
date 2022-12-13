@@ -69,7 +69,7 @@ Optimization
 
 I have made a PDF file called [Optimization_evidence.pdf](Optimization_evidence.pdf) . 
 This has the results before and after optimization for evidence that my program improved. Furthermore, 
-my optimization report/steps can be found in: [Optimization.md](Optimization.md).
+my optimization report/steps can be found in: [Optimization.md](Optimization_steps.md).
 
 All tests were carried out on my home Computer so test results may differ. My Computer specs are listed below.
 ##### PC SPECS
