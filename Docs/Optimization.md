@@ -19,7 +19,7 @@ The next step I took was for the stochastic method, I was originally using ```gr
 but since I was using networkx I thought it was more appropriate to use ```graObj.neighbors(current_node)```. This method is a part of
 the networkx module. The implementation of this proved night and day, it was the main factor in reducing my stochastic 
 algorithm time. The neighbors() method "Returns an iterator over all neighbors of node n. This is identical to iter(G[n])" (Referenced from 
-``` https://networkx.org/documentation/stable/reference/classes/generated/networkx.Graph.neighbors.html```).
+ [https://networkx.org/documentation/stable/reference/classes/generated/networkx.Graph.neighbors.html](https://networkx.org/documentation/stable/reference/classes/generated/networkx.Graph.neighbors.html)).
 
 ## Dict comprehensions
 The next optimization step I took was for the distribution method. Originally when initializing the node_prob[node] I was 
