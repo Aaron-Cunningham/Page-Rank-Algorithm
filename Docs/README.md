@@ -67,7 +67,7 @@ Optimization
 
  
 
-I have made a PDF file called [Stochastic and distribution method before and after optimization evidence.pdf](./Optimization_evidence.pdf) . 
+I have made a PDF file called [Optimization_evidence.pdf](./Optimization_evidence.pdf) . 
 This has the results before and after optimization for evidence that my program improved. Furthermore, 
 my optimization steps can be found in: [Optimization.md](./Optimization.md).
 
