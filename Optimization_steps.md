@@ -8,7 +8,7 @@ As part of my optimization, I used a few different methods. The first method I u
 method was to directly import the ```random.choice``` module. I did this so the program didn't need to go searching through the
 large random module. This saved some seconds but not much. Rather like the ```random.choice``` module I also did the same for the networkx DiGraph
 module which stands for directed graph. Since I was using a DiGraph I just imported this directly to save computational time. This stopped the program searching though the whole
-networkx library and just directly accessed DiGraph which is the specific graph I was using for this program.
+networkx library, and instead it directly accesses DiGraph which is the specific graph I was using for this program.
 
 
 ## Fromkeys()
