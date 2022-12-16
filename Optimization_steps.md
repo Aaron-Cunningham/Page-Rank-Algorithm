@@ -25,7 +25,7 @@ algorithm time. The neighbors() method "Returns an iterator over all neighbors o
 
 ## Dict comprehensions
 The next optimization step I took was for the distribution method. Originally when initializing the node_prob[node] I was 
-using the way it was described to me in the pseudocode```for node in nodes```. I noticed that in the notes on canvas it suggested using a list or dict 
+using the way it was described to me in the pseudocode```for node in nodes```. I noticed that the notes on canvas suggested using a list or dict 
 comprehension to optimize, so I took advantage of this advice and made that part of the pseudocode into a dict comprehension which
 looks like this ```node_prob = {node: 1/len(nodes) for node in nodes}```
 Since the distribution method is already lightning fast, I didn't see any improvement as I was still getting the same
