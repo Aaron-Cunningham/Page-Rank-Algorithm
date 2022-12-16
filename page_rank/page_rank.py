@@ -23,13 +23,16 @@ def load_graph(args):
         graObj.add_node(node)
         # Added Edges
         graObj.add_edge(node, target)
+    # Returns graObj
     return graObj
 
 
 def print_stats(graObj):
     """Print number of nodes and edges in the given graph"""
     # Code "G.number_of_nodes" & "G.number_of_edges" referenced from networkx docs (https://networkx.org/documentation/stable/tutorial.html)
+    # Prints number of notes in the graph
     print("The number of nodes is:", graObj.number_of_nodes())
+    # Prints number of edges in the graph
     print("The number of edges is:", graObj.number_of_edges())
 
 
@@ -77,6 +80,7 @@ def distribution_page_rank(graObj, args):
     This function estimates the Page Rank by iteratively calculating
     the probability that a random walker is currently on any node.
     """
+    # initilized list of nodes
     nodes = list(graObj.nodes)
 
     # initialize node_prob[node] = 1/(number of nodes) for all nodes
