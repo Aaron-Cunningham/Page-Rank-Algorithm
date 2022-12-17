@@ -83,7 +83,7 @@ All tests were carried out on my home Computer so test results may differ. My Co
 
 Arguments:
 =========
-![img_1.png](Docs/Images/Argument_list.png)
+![img_1.png](Images/Argument_list.png)
 ### In order to run the program from terminal please use the command line arguments listed below.
 
 #### To see argument list use:
